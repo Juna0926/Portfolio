@@ -1,16 +1,15 @@
 # Junha Won — Research Portfolio
 
-Personal research portfolio focused on **Digital Healthcare, Biomedical AI, Longitudinal Health Data, and Medical Image Analysis**.
+Research portfolio for **Digital Healthcare, Biomedical AI, Time-Series Health Data, and Medical Image Analysis**.
+
+Live site: https://juna0926.github.io/Portfolio/
 
 ## Structure
-- `index.html` — portfolio landing page
-- `styles.css` — responsive light/dark design system
-- `script.js` — theme, reveal motion, image lightbox, back-to-top
-- `cv.html` — printable public CV
-- `assets/` — selected research figures and profile image
+- Overview: `index.html`
+- Research details: `research/`
+- Major project details: `projects/`
+- Presentation details: `output/`
+- Web CV: `cv.html`
 
-## GitHub Pages
-This repository is prepared to be served from the `main` branch root.
-
-Expected URL after Pages is enabled:
-`https://juna0926.github.io/Portfolio/`
+## Design
+The site uses an 800px editorial layout inspired by compact academic portfolio sites, with responsive navigation, light/dark themes, accessible image lightboxes, and research-first information hierarchy.
