@@ -1,7 +1,7 @@
 .nav-actions{display:flex;align-items:center;gap:4px}.menu-toggle{display:none;width:32px;height:32px;border:0;background:none;color:var(--muted);font-size:16px;cursor:pointer}.mobile-menu{display:none;padding-top:3px;padding-bottom:14px;gap:16px;flex-wrap:wrap}.mobile-menu a{font:11px Inter;color:var(--muted)}.mobile-menu.open{display:flex}.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 32px}.skills-grid>div{min-width:0}.project.compact{grid-template-columns:1fr}@media(max-width:760px){.menu-toggle{display:block}.navlinks{display:none}.skills-grid{grid-template-columns:1fr}.mobile-menu.open{display:flex}}@media(min-width:761px){.mobile-menu{display:none!important}}
 /* Portfolio polish */
 .title-link{transition:color .18s ease}.title-link:hover{color:var(--accent)}
-.detail-link{display:inline-flex;margin-top:10px;font:600 10px Inter;color:var(--accent);letter-spacing:.01em}.detail-link:hover{text-decoration:underline;text-underline-offset:3px}
+.detail-link{display:inline-flex;margin-top:10px;font:600 10px Inter;color:var(--accent);letter-spacing:.01em}.detail-link:hover{text-decoration:underline;text-underline-offset:3px}.repo-link{margin-left:12px}.detail-repo-link{margin:12px 0 4px}
 .project-thumb{display:block;align-self:start;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}.project-thumb img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}.project-thumb:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
 .skills-grid>div{padding:2px 0}.skills-grid>div .tags span{font-weight:600;transition:transform .16s ease,border-color .16s ease}.skills-grid>div .tags span:hover{transform:translateY(-1px)}
 .skills-grid>div:nth-child(1) .tags span{background:#eef4ff;border-color:#d5e3ff;color:#315ea8}
@@ -16,4 +16,4 @@ html[data-theme=dark] .skills-grid>div:nth-child(4) .tags span{background:#30263
 .research{border-color:var(--line);transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease}.research:hover{border-color:color-mix(in srgb,var(--accent) 38%,var(--line));box-shadow:0 10px 30px color-mix(in srgb,var(--text) 6%,transparent);transform:translateY(-1px)}
 .research .figure img,.output img{image-rendering:auto}
 @media(min-width:761px){.research{grid-template-columns:1fr 190px}.figure img{aspect-ratio:16/10}}
-@media(max-width:760px){.project-thumb{width:100%;max-width:340px}.project-thumb img{width:100%}.research p{font-size:11.5px}.intro{font-size:12.5px}.skills-grid{gap:24px 20px}}
+@media(max-width:760px){.repo-link{margin-left:10px}.project-thumb{width:100%;max-width:340px}.project-thumb img{width:100%}.research p{font-size:11.5px}.intro{font-size:12.5px}.skills-grid{gap:24px 20px}}
