@@ -1,6 +1,163 @@
-(()=>{const root=document.documentElement;const themeButton=document.getElementById('themeToggle');const menuButton=document.getElementById('menuToggle');const mobileMenu=document.getElementById('mobileMenu');const topButton=document.getElementById('top');const dialog=document.getElementById('lightbox');const dialogImage=document.getElementById('lightImg');const dialogCaption=document.getElementById('caption');const closeButton=document.getElementById('close');const preferred=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';const setTheme=theme=>{root.dataset.theme=theme;localStorage.setItem('theme',theme);const meta=document.querySelector('meta[name=theme-color]');if(meta)meta.content=theme==='dark'?'#1c1c1d':'#fff'};setTheme(localStorage.getItem('theme')||preferred);themeButton?.addEventListener('click',()=>setTheme(root.dataset.theme==='dark'?'light':'dark'));menuButton?.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open))});mobileMenu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));const reveal=[...document.querySelectorAll('.reveal')];if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.05});reveal.forEach(el=>observer.observe(el))}else reveal.forEach(el=>el.classList.add('visible'));addEventListener('scroll',()=>topButton?.classList.toggle('show',scrollY>400),{passive:true});topButton?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));document.querySelectorAll('.figure').forEach(button=>button.addEventListener('click',()=>{if(!dialog||!dialogImage||!dialogCaption)return;const preview=button.querySelector('img');dialogImage.src=preview?.currentSrc||preview?.src||button.dataset.src;dialogImage.alt=button.dataset.caption||'';dialogCaption.textContent=button.dataset.caption||'';dialog.showModal()}));closeButton?.addEventListener('click',()=>dialog.close());dialog?.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});const repoMap=[['Longitudinal Behavioral Anomaly Detection for Depression Monitoring Using Passive Smartphone Sensing Data','https://github.com/Juna0926/brighten-time-series-anomaly-detection'],['Data-Efficient Stoma Lesion Localization via WSOL and Pseudo-Label Refinement with Domain Knowledge','https://github.com/Juna0926/stoma-lesion-localization'],['Deep Learning-Based Stoma Image Classification for Remote Patient Monitoring','https://github.com/Juna0926/stoma-image-classification'],['Digital Phenotype-Based Mental Health Prediction and Derived Feature Contribution Analysis','https://github.com/Juna0926/digital-phenotype-mental-health'],['Depression Risk Prediction Using KNHANES Data','https://github.com/Juna0926/knhanes-depression-risk'],['Proposal for Expanding DRT Service Areas in Gyeonggi Province','https://github.com/Juna0926/ddokbus-service-area-analysis'],['Risk-Based Prioritization of Heated Pavement Deployment','https://github.com/Juna0926/heated-pavement-prioritization']];const repoFor=text=>{const normalized=(text||'').replace(/\s+/g,' ').trim();const match=repoMap.find(([key])=>normalized.includes(key));return match?.[1]};document.querySelectorAll('.research,.project').forEach(card=>{const url=repoFor(card.querySelector('h3')?.textContent);if(!url||card.querySelector('.repo-link'))return;const anchor=document.createElement('a');anchor.className='detail-link repo-link';anchor.href=url;anchor.target='_blank';anchor.rel='noopener';anchor.textContent='repository ↗';const details=card.querySelector('.detail-link');if(details)details.insertAdjacentElement('afterend',anchor);else card.querySelector('.copy,div')?.append(anchor)});const detailTitle=document.querySelector('.detail-title');const detailUrl=repoFor(detailTitle?.textContent);if(detailUrl&&!document.querySelector('.detail-repo-link')){const a=document.createElement('a');a.className='detail-link detail-repo-link';a.href=detailUrl;a.target='_blank';a.rel='noopener';a.textContent='GitHub repository ↗';const meta=document.querySelector('.detail-meta');if(meta)meta.insertAdjacentElement('afterend',a);else detailTitle.insertAdjacentElement('afterend',a)}})();
-(()=>{const main=document.getElementById('main');if(!main)return;const numbers=main.querySelector('.numbers');const order=['about','education','experience','outputs','research','projects','awards','skills'];const about=document.getElementById('about');if(about)main.appendChild(about);if(numbers)main.appendChild(numbers);order.slice(1).forEach(id=>{const section=document.getElementById(id);if(section)main.appendChild(section)});const titleMap={education:'Education',experience:'Experience',outputs:'Outputs',research:'Research',projects:'Projects',awards:'Awards & Training',skills:'Skills'};Object.entries(titleMap).forEach(([id,label])=>{const h2=document.querySelector(`#${id} .section-head h2`);if(h2)h2.textContent=label});const navItems=[['Education','#education'],['Experience','#experience'],['Outputs','#outputs'],['Research','#research'],['Projects','#projects'],['Awards','#awards'],['Skills','#skills'],['CV','./cv.html']];document.querySelectorAll('.navlinks,.mobile-menu').forEach(menu=>{menu.innerHTML=navItems.map(([label,href])=>`<a href="${href}">${label}</a>`).join('')});const mobile=document.getElementById('mobileMenu');mobile?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mobile.classList.remove('open');document.getElementById('menuToggle')?.setAttribute('aria-expanded','false')}))})();
-(()=>{const projects=[{title:'Depression Risk Prediction Using KNHANES Data',cover:'./assets/media/project-knhanes-cover.webp',detail:'../assets/media/project-knhanes-detail.webp'},{title:'AI-Based Hospital Information System for Clinical and Insurance Prediction',cover:'./assets/media/project-hospital-cover.webp',detail:'../assets/media/project-hospital-detail.webp'},{title:'Proposal for Expanding DRT Service Areas in Gyeonggi Province',cover:'./assets/media/project-drt-cover.webp',detail:'../assets/media/project-drt-detail.webp'},{title:'Risk-Based Prioritization of Heated Pavement Deployment',cover:'./assets/media/project-heated-cover.webp',detail:'../assets/media/project-heated-detail.webp'}];const normalized=text=>(text||'').replace(/\s+/g,' ').trim();document.querySelectorAll('.project').forEach(card=>{const title=normalized(card.querySelector('h3')?.textContent);const item=projects.find(p=>title.includes(p.title));const img=card.querySelector('.project-thumb img');if(item&&img){img.src=item.cover;img.removeAttribute('onerror')}});const detailTitle=normalized(document.querySelector('.detail-title')?.textContent);const item=projects.find(p=>detailTitle.includes(p.title));if(item){const figure=document.querySelector('.detail-section .figure');const img=figure?.querySelector('img');if(figure)figure.dataset.src=item.detail;if(img){img.src=item.detail;img.removeAttribute('onerror')}}})();
-(()=>{const norm=s=>(s||'').replace(/\s+/g,' ').trim();const about=document.getElementById('about');if(about){const intro=about.querySelector('.intro');if(intro)intro.innerHTML='아주대학교 산업공학과에서 머신러닝과 데이터 분석을 공부하며, <strong>일상에서 생성되는 건강 데이터와 의료영상으로 환자 상태를 예측하고 변화 신호를 포착하는 의료 AI</strong>를 연구해왔습니다. 현재는 passive smartphone sensing만을 이용한 PHQ-9 기반 우울 심각도 예측과 개인별 행동 이상이 이후 PHQ-9 변화에 선행하는지 분석하고 있으며, 이전에는 환자 촬영 장루 영상의 분류와 data-efficient lesion localization을 연구했습니다.';const quote=about.querySelector('blockquote');if(quote)quote.textContent='“환자 개인별 종단적 건강 상태 변화를 감지하고, 이를 이용해 원격 진료를 할 수 있는 의료 AI를 개발하는 연구자가 되고자 합니다.”';const tags=about.querySelectorAll('.tags span');if(tags[2])tags[2].textContent='Time-Series & Longitudinal Data'}
-const collab='Industry–Academia–Hospital Collaborative Research · Ajou University Hospital';document.querySelectorAll('.research').forEach(card=>{const title=norm(card.querySelector('h3')?.textContent);const badgeHost=card.querySelector('.row > div > div')||card.querySelector('.row > div');if(title.includes('Data-Efficient Stoma Lesion Localization')||title.includes('Deep Learning-Based Stoma Image Classification')){if(badgeHost&&!Array.from(badgeHost.querySelectorAll('.badge')).some(b=>b.textContent.includes('Industry–Academia–Hospital'))) {const b=document.createElement('span');b.className='badge';b.textContent=collab;badgeHost.appendChild(b)}}if(title.includes('Digital Phenotype-Based Mental Health Prediction')){if(badgeHost&&!Array.from(badgeHost.querySelectorAll('.badge')).some(b=>b.textContent.includes('23rd Avison'))) {const b=document.createElement('span');b.className='badge';b.textContent='23rd Avison Biomedical Symposium 2026';badgeHost.appendChild(b)}const fig=card.querySelector('.figure');const img=fig?.querySelector('img');const cover='data:image/webp;base64,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';if(img){img.src=cover;img.removeAttribute('onerror')}if(fig)fig.dataset.src=cover}}});
-const detailTitle=norm(document.querySelector('.detail-title')?.textContent);if(detailTitle.includes('Depression Risk Prediction Using KNHANES Data')){const figure=document.querySelector('.detail-section .figure');const img=figure?.querySelector('img');if(figure)figure.dataset.src='../assets/knhanes.jpg';if(img){img.src='../assets/knhanes.jpg';img.onerror=()=>{img.onerror=null;img.src='../assets/knhanes.svg'}}}})();
+(()=>{
+  const root=document.documentElement;
+  const themeButton=document.getElementById('themeToggle');
+  const menuButton=document.getElementById('menuToggle');
+  const mobileMenu=document.getElementById('mobileMenu');
+  const topButton=document.getElementById('top');
+  const dialog=document.getElementById('lightbox');
+  const dialogImage=document.getElementById('lightImg');
+  const dialogCaption=document.getElementById('caption');
+  const closeButton=document.getElementById('close');
+  const preferred=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  const setTheme=theme=>{
+    root.dataset.theme=theme;
+    localStorage.setItem('theme',theme);
+    const meta=document.querySelector('meta[name=theme-color]');
+    if(meta)meta.content=theme==='dark'?'#1c1c1d':'#fff';
+  };
+  setTheme(localStorage.getItem('theme')||preferred);
+  themeButton?.addEventListener('click',()=>setTheme(root.dataset.theme==='dark'?'light':'dark'));
+  menuButton?.addEventListener('click',()=>{
+    const open=mobileMenu?.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded',String(Boolean(open)));
+  });
+  mobileMenu?.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+    mobileMenu.classList.remove('open');
+    menuButton?.setAttribute('aria-expanded','false');
+  }));
+  const reveal=[...document.querySelectorAll('.reveal')];
+  if('IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}
+    }),{threshold:.05});
+    reveal.forEach(el=>observer.observe(el));
+  } else {
+    reveal.forEach(el=>el.classList.add('visible'));
+  }
+  addEventListener('scroll',()=>topButton?.classList.toggle('show',scrollY>400),{passive:true});
+  topButton?.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+  document.querySelectorAll('.figure').forEach(button=>button.addEventListener('click',()=>{
+    if(!dialog||!dialogImage||!dialogCaption)return;
+    const preview=button.querySelector('img');
+    dialogImage.src=preview?.currentSrc||preview?.src||button.dataset.src||'';
+    dialogImage.alt=button.dataset.caption||'';
+    dialogCaption.textContent=button.dataset.caption||'';
+    dialog.showModal();
+  }));
+  closeButton?.addEventListener('click',()=>dialog?.close());
+  dialog?.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
+
+  const repoMap=[
+    ['Longitudinal Behavioral Anomaly Detection for Depression Monitoring Using Passive Smartphone Sensing Data','https://github.com/Juna0926/brighten-time-series-anomaly-detection'],
+    ['Data-Efficient Stoma Lesion Localization via WSOL and Pseudo-Label Refinement with Domain Knowledge','https://github.com/Juna0926/stoma-lesion-localization'],
+    ['Deep Learning-Based Stoma Image Classification for Remote Patient Monitoring','https://github.com/Juna0926/stoma-image-classification'],
+    ['Digital Phenotype-Based Mental Health Prediction and Derived Feature Contribution Analysis','https://github.com/Juna0926/digital-phenotype-mental-health'],
+    ['Depression Risk Prediction Using KNHANES Data','https://github.com/Juna0926/knhanes-depression-risk'],
+    ['Proposal for Expanding DRT Service Areas in Gyeonggi Province','https://github.com/Juna0926/ddokbus-service-area-analysis'],
+    ['Risk-Based Prioritization of Heated Pavement Deployment','https://github.com/Juna0926/heated-pavement-prioritization']
+  ];
+  const repoFor=text=>{
+    const normalized=(text||'').replace(/\s+/g,' ').trim();
+    return repoMap.find(([key])=>normalized.includes(key))?.[1];
+  };
+  document.querySelectorAll('.research,.project').forEach(card=>{
+    const url=repoFor(card.querySelector('h3')?.textContent);
+    if(!url||card.querySelector('.repo-link'))return;
+    const anchor=document.createElement('a');
+    anchor.className='detail-link repo-link';
+    anchor.href=url;
+    anchor.target='_blank';
+    anchor.rel='noopener';
+    anchor.textContent='repository ↗';
+    const details=card.querySelector('.detail-link');
+    if(details)details.insertAdjacentElement('afterend',anchor);
+    else card.querySelector('.copy,div')?.append(anchor);
+  });
+  const detailTitle=document.querySelector('.detail-title');
+  const detailUrl=repoFor(detailTitle?.textContent);
+  if(detailUrl&&!document.querySelector('.detail-repo-link')){
+    const a=document.createElement('a');
+    a.className='detail-link detail-repo-link';
+    a.href=detailUrl;
+    a.target='_blank';
+    a.rel='noopener';
+    a.textContent='GitHub repository ↗';
+    const meta=document.querySelector('.detail-meta');
+    if(meta)meta.insertAdjacentElement('afterend',a);
+    else detailTitle?.insertAdjacentElement('afterend',a);
+  }
+})();
+
+(()=>{
+  const main=document.getElementById('main');
+  if(!main)return;
+  const numbers=main.querySelector('.numbers');
+  const order=['about','education','experience','outputs','research','projects','awards','skills'];
+  const about=document.getElementById('about');
+  if(about)main.appendChild(about);
+  if(numbers)main.appendChild(numbers);
+  order.slice(1).forEach(id=>{const section=document.getElementById(id);if(section)main.appendChild(section)});
+  const titleMap={education:'Education',experience:'Experience',outputs:'Outputs',research:'Research',projects:'Projects',awards:'Awards & Training',skills:'Skills'};
+  Object.entries(titleMap).forEach(([id,label])=>{const h2=document.querySelector(`#${id} .section-head h2`);if(h2)h2.textContent=label});
+  const navItems=[['Education','#education'],['Experience','#experience'],['Outputs','#outputs'],['Research','#research'],['Projects','#projects'],['Awards','#awards'],['Skills','#skills'],['CV','./cv.html']];
+  document.querySelectorAll('.navlinks,.mobile-menu').forEach(menu=>{menu.innerHTML=navItems.map(([label,href])=>`<a href="${href}">${label}</a>`).join('')});
+})();
+
+(()=>{
+  const projects=[
+    {title:'Depression Risk Prediction Using KNHANES Data',cover:'./assets/media/project-knhanes-cover.webp',detail:'../assets/media/project-knhanes-detail.webp'},
+    {title:'AI-Based Hospital Information System for Clinical and Insurance Prediction',cover:'./assets/media/project-hospital-cover.webp',detail:'../assets/media/project-hospital-detail.webp'},
+    {title:'Proposal for Expanding DRT Service Areas in Gyeonggi Province',cover:'./assets/media/project-drt-cover.webp',detail:'../assets/media/project-drt-detail.webp'},
+    {title:'Risk-Based Prioritization of Heated Pavement Deployment',cover:'./assets/media/project-heated-cover.webp',detail:'../assets/media/project-heated-detail.webp'}
+  ];
+  const normalized=text=>(text||'').replace(/\s+/g,' ').trim();
+  document.querySelectorAll('.project').forEach(card=>{
+    const title=normalized(card.querySelector('h3')?.textContent);
+    const item=projects.find(p=>title.includes(p.title));
+    const img=card.querySelector('.project-thumb img');
+    if(item&&img){img.src=item.cover;img.removeAttribute('onerror')}
+  });
+  const detailTitle=normalized(document.querySelector('.detail-title')?.textContent);
+  const item=projects.find(p=>detailTitle.includes(p.title));
+  if(item){
+    const figure=document.querySelector('.detail-section .figure');
+    const img=figure?.querySelector('img');
+    if(figure)figure.dataset.src=item.detail;
+    if(img){img.src=item.detail;img.removeAttribute('onerror')}
+  }
+})();
+
+(()=>{
+  const norm=s=>(s||'').replace(/\s+/g,' ').trim();
+  const about=document.getElementById('about');
+  if(about){
+    const intro=about.querySelector('.intro');
+    if(intro)intro.innerHTML='아주대학교 산업공학과에서 머신러닝과 데이터 분석을 공부하며, <strong>일상에서 생성되는 건강 데이터와 의료영상으로 환자 상태를 예측하고 변화 신호를 포착하는 의료 AI</strong>를 연구해왔습니다. 현재는 passive smartphone sensing만을 이용한 PHQ-9 기반 우울 심각도 예측과 개인별 행동 이상이 이후 PHQ-9 변화에 선행하는지 분석하고 있으며, 이전에는 환자 촬영 장루 영상의 분류와 data-efficient lesion localization을 연구했습니다.';
+    const quote=about.querySelector('blockquote');
+    if(quote)quote.textContent='“환자 개인별 종단적 건강 상태 변화를 감지하고, 이를 이용해 원격 진료를 할 수 있는 의료 AI를 개발하는 연구자가 되고자 합니다.”';
+    const tags=about.querySelectorAll('.tags span');
+    if(tags[2])tags[2].textContent='Time-Series & Longitudinal Data';
+  }
+
+  const collab='Industry–Academia–Hospital Collaborative Research · Ajou University Hospital';
+  document.querySelectorAll('.research').forEach(card=>{
+    const title=norm(card.querySelector('h3')?.textContent);
+    const badgeHost=card.querySelector('.row > div > div')||card.querySelector('.row > div');
+    if(title.includes('Data-Efficient Stoma Lesion Localization')||title.includes('Deep Learning-Based Stoma Image Classification')){
+      if(badgeHost&&!Array.from(badgeHost.querySelectorAll('.badge')).some(b=>b.textContent.includes('Industry–Academia–Hospital'))){
+        const b=document.createElement('span');
+        b.className='badge';
+        b.textContent=collab;
+        badgeHost.appendChild(b);
+      }
+    }
+    if(title.includes('Digital Phenotype-Based Mental Health Prediction')){
+      if(badgeHost&&!Array.from(badgeHost.querySelectorAll('.badge')).some(b=>b.textContent.includes('23rd Avison'))){
+        const b=document.createElement('span');
+        b.className='badge';
+        b.textContent='23rd Avison Biomedical Symposium 2026';
+        badgeHost.appendChild(b);
+      }
+    }
+  });
+})();
