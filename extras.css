@@ -6,6 +6,7 @@
 .skills-grid>div{padding:2px 0}.skills-grid>div .tags span{font-weight:600;transition:transform .16s ease,border-color .16s ease}.skills-grid>div .tags span:hover{transform:translateY(-1px)}
 .skills-grid>div:nth-child(1) .tags span{background:#eef4ff;border-color:#d5e3ff;color:#315ea8}
 .skills-grid>div:nth-child(2) .tags span{background:#eefaf6;border-color:#d3eee4;color:#28745f}
+.skills-grid>div:nth-child(2) .tags span:nth-child(3){display:none}
 .skills-grid>div:nth-child(3) .tags span{background:#fff8e8;border-color:#f2e3bc;color:#82631c}
 .skills-grid>div:nth-child(4) .tags span{background:#f6f0ff;border-color:#e5d8fb;color:#7151a6}
 html[data-theme=dark] .skills-grid>div:nth-child(1) .tags span{background:#1f2b43;border-color:#344b72;color:#9bc0ff}
