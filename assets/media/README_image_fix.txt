@@ -1,1 +1,0 @@
-KNHANES detail image will use a static PNG asset to avoid base64-loader/lightbox race conditions.
