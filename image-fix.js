@@ -41,7 +41,9 @@
       '../assets/pngdata/k3.b64','../assets/pngdata/k4.b64','../assets/pngdata/k5.b64',
       '../assets/pngdata/k6.b64','../assets/pngdata/k7.b64','../assets/pngdata/k8.b64',
       '../assets/pngdata/k9a.b64','../assets/pngdata/k9b.b64','../assets/pngdata/k9c.b64',
-      '../assets/pngdata/k9d.b64','../assets/pngdata/k9e.b64','../assets/pngdata/k9f.b64'
+      '../assets/pngdata/k9d.b64','../assets/pngdata/k9e.b64',
+      '../assets/pngdata/k9f1.b64','../assets/pngdata/k9f2.b64',
+      '../assets/pngdata/k9f3.b64','../assets/pngdata/k9f4.b64'
     ]);
     figure.dataset.src=src;
     image.src=src;
