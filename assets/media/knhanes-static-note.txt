@@ -1,1 +1,0 @@
-Use a direct static PNG asset for KNHANES Main Figures to avoid data-URL and lightbox race issues.
