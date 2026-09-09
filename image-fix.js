@@ -26,6 +26,8 @@
     ]);
     image.src=src;
     image.removeAttribute('onerror');
+    image.style.objectFit='contain';
+    image.style.background='#fff';
   };
 
   const setKnhanesMainFigure=async()=>{
