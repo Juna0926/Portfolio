@@ -8,8 +8,8 @@
 
     img.style.objectFit='contain';
     img.style.background='#fff';
-    img.src='./assets/media/project-hospital-cover.png?v=20260910-6';
-    img.dataset.coverSource='restored-original-png';
+    img.src='https://raw.githubusercontent.com/Juna0926/Portfolio/9f36169fef725e7c00dcf0c946d8c475fa827a9f/assets/media/project-hospital-cover.png';
+    img.dataset.coverSource='pinned-original-raw';
   };
 
   if(document.readyState==='loading'){
