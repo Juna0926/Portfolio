@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="889" height="1254" viewBox="0 0 889 1254">
+  <rect width="889" height="1254" fill="#fff"/>
+  <style>
+    .t{font-family:'Batang','바탕','AppleMyungjo','Noto Serif KR','NanumMyeongjo',serif;fill:#111;font-size:16px}
+    .h{font-family:'Batang','바탕','AppleMyungjo','Noto Serif KR','NanumMyeongjo',serif;fill:#111;font-size:20px;font-weight:700}
+    .s{font-family:'Batang','바탕','AppleMyungjo','Noto Serif KR','NanumMyeongjo',serif;fill:#111;font-size:17px;font-weight:700}
+  </style>
+  <text x="130" y="165" class="h">4. 분석 결과</text>
+  <text x="130" y="200" class="h">4.1 최적 클러스터 도출 및 군집 별</text>
+  <text x="145" y="232" class="s">특성</text>
+  <text x="130" y="270" class="t">본 연구에서는 우울증 관련 요인을 파악하기 위하여 K-means 클러스터링을 적용하였다.</text>
+  <text x="130" y="296" class="t">총 5개의 클러스터로 나누었고, 각 클러스터의 주요 특성은 다음과 같다.</text>
+  <text x="130" y="348" class="s">-클러스터 0: 고령·저에너지·만성질환군</text>
+  <text x="130" y="378" class="t">평균 연령 64세로 가장 고령 집단이며, 고혈압 (64%), 이상지질혈증(59%), 당뇨(24%) 유</text>
+  <text x="130" y="403" class="t">병률이 가장 높다. 에너지 섭취량이 가장 낮고(평균 1,555kcal), 영양 결핍과 만성질환이</text>
+  <text x="130" y="428" class="t">동시에 나타나는 특징을 보였다.</text>
+  <text x="130" y="480" class="s">-클러스터 1: 청년·미혼·알레르기·좌식군</text>
+  <text x="130" y="510" class="t">평균 연령 28세, 전원 미혼이며 아토피(11%), 알레르기 비염(24%) 유병률이 가장 높다. 하루</text>
+  <text x="130" y="535" class="t">앉아있는 시간이 길고(평균 9.8시간), PHQ 점수가 최고치를 보여 정신건강 위험군으로 분류된</text>
+  <text x="130" y="560" class="t">다.</text>
+  <text x="130" y="612" class="s">-클러스터 2: 중년·기혼·영양우수·미세먼지 노출군</text>
+  <text x="130" y="642" class="t">평균 연령 47세, 기혼 비율 95%로 가족 단위 특성이 강하다. 만성질환 유병률은 가장</text>
+  <text x="130" y="667" class="t">낮으며, 영양 섭취(단백질·칼륨·칼슘 등)는 전반적으로 우수하다. 다만, PM₂.₅, PM₁₀, SO₂</text>
+  <text x="130" y="692" class="t">등 대기오염 물질 노출 수준이 가장 높다.</text>
+  <text x="130" y="744" class="s">-클러스터 3: 중년·장시간근로·흡연·과음군</text>
+  <text x="130" y="774" class="t">평균 연령 48세, 주당 근로시간이 가장 길고(평균 37시간), 흡연율 100%, 음주 빈도·섭취</text>
+  <text x="130" y="799" class="t">량 모두 최고 수준이다. 나트륨 섭취량도 가장 높아(평균 3,946mg), 생활습관과 식습</text>
+  <text x="130" y="824" class="t">관 위험요인이 복합적으로 나타난다.</text>
+  <text x="130" y="876" class="s">-클러스터 4: 장년·기혼·과거흡연·저학력·고영양군</text>
+  <text x="130" y="906" class="t">평균 연령 57세, 과거 흡연을 했으나 현재는 비흡연자의 비율이 높으며, 고혈압(32%), 이</text>
+  <text x="130" y="931" class="t">상지질혈증(22%), 당뇨(13%) 유병률이 중상 수준이다. 그러나 식이섬유·칼슘·칼륨 섭취량</text>
+  <text x="130" y="956" class="t">은 가장 높고, PHQ 점수는 최저로 나타났다.</text>
+  <text x="445" y="1195" text-anchor="middle" class="t">− 13 −</text>
+</svg>
