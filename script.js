@@ -44,7 +44,7 @@
   document.querySelectorAll('.figure').forEach(button=>button.addEventListener('click',()=>{
     if(!dialog||!dialogImage||!dialogCaption)return;
     const preview=button.querySelector('img');
-    dialogImage.src=preview?.currentSrc||preview?.src||button.dataset.src||'';
+    dialogImage.src=button.dataset.src||preview?.src||preview?.currentSrc||'';
     dialogImage.alt=button.dataset.caption||'';
     dialogCaption.textContent=button.dataset.caption||'';
     dialog.showModal();
@@ -175,7 +175,8 @@
 
   const detailTitle=normalized(document.querySelector('.detail-title')?.textContent);
   const item=projects.find(p=>detailTitle.includes(p.title));
-  if(item){
+  const isKnhanes=detailTitle.includes('Depression Risk Prediction Using KNHANES Data');
+  if(item&&!isKnhanes){
     const figure=document.querySelector('.detail-section .figure');
     const img=figure?.querySelector('img');
     if(figure)figure.dataset.src=item.detail;
@@ -276,8 +277,9 @@
 })();
 
 (()=>{
+  if(location.pathname.includes('/projects/')||location.pathname.includes('/research/')||location.pathname.includes('/output/'))return;
   const helper=document.createElement('script');
-  helper.src=location.pathname.includes('/projects/')?'../image-fix.js':'./image-fix.js';
+  helper.src='./image-fix.js?v=20260909-4';
   helper.async=true;
   document.body.appendChild(helper);
 })();
