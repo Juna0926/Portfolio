@@ -274,3 +274,10 @@
     }
   }
 })();
+
+(()=>{
+  const helper=document.createElement('script');
+  helper.src=location.pathname.includes('/projects/')?'../image-fix.js':'./image-fix.js';
+  helper.async=true;
+  document.body.appendChild(helper);
+})();
