@@ -136,8 +136,6 @@
     menu.innerHTML=navItems.map(([label,href])=>`<a href="${href}">${label}</a>`).join('');
   });
 
-  // BRIGHTEN is represented in Outputs as the current manuscript-in-preparation,
-  // so keep the Research section focused on the three completed representative studies.
   const brightenTitle='Longitudinal Behavioral Anomaly Detection for Depression Monitoring Using Passive Smartphone Sensing Data';
   document.querySelectorAll('#research .research').forEach(card=>{
     const title=(card.querySelector('h3')?.textContent||'').replace(/\s+/g,' ').trim();
@@ -151,22 +149,22 @@
   const projects=[
     {
       title:'Depression Risk Prediction Using KNHANES Data',
-      cover:'./assets/knhanes.svg',
+      cover:'./assets/media/project-knhanes-cover.webp',
       detail:'../assets/media/project-knhanes-detail.svg'
     },
     {
       title:'AI-Based Hospital Information System for Clinical and Insurance Prediction',
-      cover:'./assets/hospital.svg',
+      cover:'./assets/media/project-hospital-cover.png',
       detail:'../assets/media/project-hospital-detail.webp'
     },
     {
       title:'Proposal for Expanding DRT Service Areas in Gyeonggi Province',
-      cover:'./assets/ddokbus.svg',
+      cover:'./assets/media/project-drt-cover.webp',
       detail:'../assets/media/project-drt-detail.webp'
     },
     {
       title:'Risk-Based Prioritization of Heated Pavement Deployment',
-      cover:'./assets/gwangjin.svg',
+      cover:'./assets/media/project-heated-cover.webp',
       detail:'../assets/media/project-heated-detail.webp'
     }
   ];
@@ -180,15 +178,16 @@
     if(item&&img){
       img.src=item.cover;
       img.removeAttribute('onerror');
-      img.style.objectFit='contain';
-      img.style.background='#fff';
+      if(title.includes('AI-Based Hospital Information System')){
+        img.style.objectFit='contain';
+        img.style.background='#fff';
+      }
     }
   });
 
   const detailTitle=normalized(document.querySelector('.detail-title')?.textContent);
   const item=projects.find(p=>detailTitle.includes(p.title));
-  const isKnhanes=detailTitle.includes('Depression Risk Prediction Using KNHANES Data');
-  if(item&&!isKnhanes){
+  if(item){
     const figure=document.querySelector('.detail-section .figure');
     const img=figure?.querySelector('img');
     if(figure)figure.dataset.src=item.detail;
